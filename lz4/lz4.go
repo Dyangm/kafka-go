@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 
 	"github.com/pierrec/lz4"
-	"github.com/segmentio/kafka-go"
+	"github.com/wowh/kafka-go"
 )
 
 func init() {

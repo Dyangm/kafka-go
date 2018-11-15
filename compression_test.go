@@ -8,10 +8,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/segmentio/kafka-go"
-	"github.com/segmentio/kafka-go/gzip"
-	"github.com/segmentio/kafka-go/lz4"
-	"github.com/segmentio/kafka-go/snappy"
+	"github.com/wowh/kafka-go"
+	"github.com/wowh/kafka-go/gzip"
+	"github.com/wowh/kafka-go/lz4"
+	"github.com/wowh/kafka-go/snappy"
 )
 
 func TestCompression(t *testing.T) {

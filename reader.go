@@ -512,7 +512,12 @@ func (r *Reader) fetchOffsets(subs map[string][]int32) (map[int]int64, error) {
 					// No offset stored
 					offset = FirstOffset
 				}
-				offsetsByPartition[int(partition)] = offset
+
+				if offset == FirstOffset && r.config.ReadFromLastOffset {
+					offsetsByPartition[int(partition)] = LastOffset
+				} else {
+					offsetsByPartition[int(partition)] = offset
+				}
 			}
 		}
 	}
@@ -932,6 +937,10 @@ type ReaderConfig struct {
 	//
 	// Only used when GroupID is set
 	RetentionTime time.Duration
+
+	// If ReadFromLastOffset set to true, when offset is not set the consumer in consumer group
+	// will read from last offset instead read from first offset.
+	ReadFromLastOffset bool
 
 	// If not nil, specifies a logger used to report internal changes within the
 	// reader.

@@ -5,7 +5,7 @@ import (
 	"compress/gzip"
 	"io/ioutil"
 
-	"github.com/segmentio/kafka-go"
+	"github.com/wowh/kafka-go"
 )
 
 func init() {
